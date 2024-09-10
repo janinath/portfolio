@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000; /* Dark black background */
+            color: #007bff; /* Blue color for the name */
+            margin: 0;
+        }
+
+        .navbar-custom {
+            background-color: #2c2c2c; /* Less shade of black */
+        }
+
+        .navbar-brand-icon {
+            background-color: black;
+            color: #007bff;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 24px;
+            text-align: center;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 30px;
+            text-shadow: 0 0 10px #007bff;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #007bff; /* Blue color */
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .name-container {
+            width: 100%;
+            text-align: center;
+            margin-top: 100px;
+            animation: moveDown 2s forwards;
+        }
+
+        @keyframes moveDown {
+            0% {
+                top: 60px;
+            }
+            100% {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        .name {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .typed-out {
+            font-size: 24px;
+            color: #00bfff; /* Light blue color */
+            display: inline-block;
+            border-right: 2px solid #00bfff;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(30, end), blink 0.75s step-end infinite, hideCursor 3.5s forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #00bfff; }
+        }
+
+        @keyframes hideCursor {
+            to { border-right: none; }
+        }
+
+        .cards-section {
+            padding: 50px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 200px; /* Adjust based on name container height */
+        }
+
+        .card-custom {
+            border: 1px solid #00bfff; /* Light blue border */
+            color: #00bfff; /* Light blue headings */
+            transition: box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card-custom:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow on hover */
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .content-section {
+            padding: 50px;
+            color: #00bfff; /* Light blue text */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="navbar-brand-icon">J</div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="name-container">
+        <h1 class="name">Your Name</h1>
+        <div class="typed-out">IT Engineer, Full Stack Developer, Python Developer</div>
+    </div>
+
+    <div class="cards-section">
+        <div class="card card-custom" onclick="scrollToSection('experience')">
+            <img src="experience.jpg" class="card-img-top" alt="Experience Image">
+            <div class="card-body">
+                <h5 class="card-title">Experience</h5>
+            </div>
+        </div>
+        <div class="card card-custom" onclick="scrollToSection('internship')">
+            <img src="internship.jpg" class="card-img-top" alt="Internship Image">
+            <div class="card-body">
+                <h5 class="card-title">Internship</h5>
+            </div>
+        </div>
+        <div class="card card-custom" onclick="scrollToSection('education')">
+            <img src="education.jpg" class="card-img-top" alt="Education Image">
+            <div class="card-body">
+                <h5 class="card-title">Education</h5>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience" class="content-section">
+        <h2>Experience</h2>
+        <p>Details about your experience.</p>
+    </div>
+    <div id="internship" class="content-section">
+        <h2>Internship</h2>
+        <p>Details about your internship.</p>
+    </div>
+    <div id="education" class="content-section">
+        <h2>Education</h2>
+        <p>Details about your education.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
